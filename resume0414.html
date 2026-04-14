@@ -45,9 +45,21 @@ body {
 }
 
 .photo-box {
+  position: relative; /* 這是關鍵，讓地球可以繞著這個框框定位 */
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* 新增這段來控制地球 GIF */
+.photo-box img:first-child {
+  position: absolute;   /* 讓它浮起來，不佔據空間 */
+  width: 100px;         /* 縮小一點，原來的 200px 太大會擋到臉 */
+  height: auto;
+  top: -30px;           /* 往上飄一點 */
+  left: -40px;          /* 往左飄一點 */
+  z-index: 2;           /* 確保它疊在照片上面 */
+  opacity: 0.9;         /* 稍微透明一點點更有質感 */
 }
 
 .photo {
@@ -256,7 +268,9 @@ button {
   <div class="container">
     <section class="top">
       <div class="photo-box">
-        <img src="images/global.gif" style="width: 200px; height: auto;"> 
+        <img src="images/global.gif" alt="動畫"> <img src="images/IMG_7676.jpeg" alt="履歷照片" class="photo" />
+      </div>
+      <div class="photo-box">        
         <img src="images/IMG_7676.jpeg" alt="履歷照片" class="photo" />
       </div>
       <div class="intro">
